@@ -28,7 +28,14 @@ function AdminProducts({ setCartInfo, cartInfo, userId }: {setCartInfo: Function
     <section className='admin__products__container'>
       {loading ? "Loading..." : (
         <>
-          <Swiper slidesPerView={3} spaceBetween={20}>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={20}  
+            breakpoints={{
+            640: {
+              slidesPerView: 1.2,
+            },
+          }}>
             {productsData.products.map((product: { id: number, name: string, url_image: string, price: string, seller_id: number}, index: number) => (
               <SwiperSlide>
                 <Product userId={userId} key={index} product={product} setCartInfo={setCartInfo} cartInfo={cartInfo} />
