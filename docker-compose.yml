@@ -1,0 +1,56 @@
+version: '3.9'
+
+services:
+  frontend:
+    container_name: app_frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /frontend
+    depends_on:
+      - backend
+    restart: always
+    environment:
+      - REACT_APP_BACKEND_HOST=db
+      - REACT_APP_BACKEND_PORT=3001
+    networks:
+      - web-net
+  backend:
+    container_name: app_backend
+    build: ./backend
+    ports:
+      - 3001:3001
+    platform: linux/x86_64
+    working_dir: /backend
+    depends_on:
+      - db
+    restart: always
+    environment:
+      - PORT=3001
+      - JWT_SECRET=secret
+      - DB_USER=root
+      - DB_PASS=123456
+      - DB_HOST=db
+      - DB_PORT=5432
+    networks:
+      - web-net
+  db:
+    image: postgres
+    container_name: db
+    platform: linux/x86_64
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_USER: root
+    restart: always
+    networks:
+      - web-net
+    cap_add:
+      - SYS_NICE 
+volumes:
+  data: {}
+networks:
+  web-net:
+    name: web-net

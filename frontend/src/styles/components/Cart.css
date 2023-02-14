@@ -1,0 +1,33 @@
+.cartContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: white;
+  font-weight: 700;
+  max-width: 500px;
+  overflow-y: scroll;
+  right: 0;
+  top: 60px;
+  z-index: 100;
+  border: 2px solid black;
+}
+
+.hiddeCartContainer {
+  display: none;
+}
+
+.adminProducts {
+  position: relative;
+  margin-top: 50px;
+  overflow-y: hidden;
+  background-color: red !important;
+}
+
+.admin__products__container {
+  overflow: hidden;
+}
+
+.product {
+  padding: 16px;
+}
