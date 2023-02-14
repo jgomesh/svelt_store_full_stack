@@ -4,39 +4,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-.cartProduct {
-  display: flex;
-  max-width: 50%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.cartProduct img {
-  max-width: 50px;
-}
-
-.adminProducts {
-  gap: 50px;
-  display: flex;
-  overflow: scroll;
-}
-
-.adminProducts img {
-  max-width: 80px;
-  max-height: 100px;
-}
-
-.product {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-width: 150px;
-}
-
-img {
-  max-width: 50px;
-}
-
 .confirm_change_cart {
   top: 0;
   left: 0;
@@ -51,4 +18,8 @@ img {
 .slider {
   color: white;
   background-color: red;
+}
+
+.my_swipper {
+  margin: 64px 0px 64px 0px;
 }

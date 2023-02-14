@@ -6,6 +6,7 @@ import getAllSellers from '../utils/api/getUser';
 import Header from '../components/Header';
 import redirect from '../utils/redirect';
 import Footer from '../components/Footer';
+import PromotionsSection from '../sections/PromotionsSection';
 import AdminProducts from '../components/AdminProducts';
 
 function Home(props: IProps) {
@@ -33,6 +34,7 @@ function Home(props: IProps) {
           <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
           { userData.role && roleUser && <Cart  setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
           { userData.role && roleUser && <AdminProducts setCartInfo={setCartInfo} cartInfo={cartInfo} userId={userData.userId} /> }
+          <PromotionsSection />
           {sellers.map((seller: any, index: number) => (
             <div key={index}>
               <h4>{seller.name}</h4>

@@ -2,69 +2,69 @@ module.exports = {
   up: async (queryInterface, _Sequelize) => {
     await queryInterface.bulkInsert('products',
       [{
-        name: 'Skol Lata 250ml',
-        price: 2.20,
-        url_image: 'http://localhost:3001/images/skol_lata_350ml.jpg',
+        name: 'Bone Lacoste',
+        price: 120.20,
+        url_image: 'http://localhost:3001/images/bone_lacoste.jpg',
         seller_id: 1
       },
       {
-        name: 'Heineken 600ml',
-        price: 7.50,
-        url_image: 'http://localhost:3001/images/heineken_600ml.jpg',
+        name: 'Moletom Tommy',
+        price: 570.50,
+        url_image: 'http://localhost:3001/images/moletom_tommy.jpg',
         seller_id: 1
       },
       {
-        name: 'Antarctica Pilsen 300ml',
-        price: 2.49,
-        url_image: 'http://localhost:3001/images/antarctica_pilsen_300ml.jpg',
+        name: 'Bolsa Gucci',
+        price: 2200.49,
+        url_image: 'http://localhost:3001/images/gucci_bag.jpeg',
         seller_id: 1
       },
       {
-        name: 'Brahma 600ml',
-        price: 7.50,
-        url_image: 'http://localhost:3001/images/brahma_600ml.jpg',
+        name: 'Chinelo Gucci',
+        price: 3500.50,
+        url_image: 'http://localhost:3001/images/chinelo_gucci.jpeg',
         seller_id: 1
       },
       {
-        name: 'Skol 269ml',
-        price: 2.19,
-        url_image: 'http://localhost:3001/images/skol_269ml.jpg',
+        name: 'Cinto Off White',
+        price: 800.19,
+        url_image: 'http://localhost:3001/images/cinto_off_white.png',
         seller_id: 1
       },
       {
-        name: 'Skol Beats Senses 313ml',
-        price: 4.49,
-        url_image: 'http://localhost:3001/images/skol_beats_senses_313ml.jpg',
+        name: 'Bermuda Lacoste',
+        price: 140.49,
+        url_image: 'http://localhost:3001/images/bermuda_lacoste.jpg',
         seller_id: 1
       },
       {
-        name: 'Becks 330ml',
-        price: 4.99,
-        url_image: 'http://localhost:3001/images/becks_330ml.jpg',
+        name: 'Carteira Prada',
+        price: 400.99,
+        url_image: 'http://localhost:3001/images/carteira_prada.jpg',
         seller_id: 1
       },
       {
-        name: 'Brahma Duplo Malte 350ml',
-        price: 2.79,
-        url_image: 'http://localhost:3001/images/brahma_duplo_malte_350ml.jpg',
+        name: 'Moletom Hugo Boss',
+        price: 400.79,
+        url_image: 'http://localhost:3001/images/moletom_huggo_boss.jpg',
         seller_id: 1
       },
       {
-        name: 'Becks 600ml',
-        price: 8.89,
-        url_image: 'http://localhost:3001/images/becks_600ml.jpg',
+        name: 'Bermuda Hugo Boss',
+        price: 180.89,
+        url_image: 'http://localhost:3001/images/bermuda_hugo_boss.jpeg',
         seller_id: 1
       },
       {
-        name: 'Skol Beats Senses 269ml',
-        price: 3.57,
-        url_image: 'http://localhost:3001/images/skol_beats_senses_269ml.jpg',
+        name: 'Moletom Lacoste',
+        price: 300.57,
+        url_image: 'http://localhost:3001/images/moletom_lacoste.jpg',
         seller_id: 1
       },
       {
-        name: 'Stella Artois 275ml',
-        price: 3.49,
-        url_image: 'http://localhost:3001/images/stella_artois_275ml.jpg',
+        name: 'Calça Gucci',
+        price: 3540.49,
+        url_image: 'http://localhost:3001/images/calca_gucci.jpeg',
         seller_id: 1
       },
     ], { timestamps: false });

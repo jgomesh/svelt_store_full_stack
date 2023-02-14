@@ -9,7 +9,7 @@ function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct
   const { quantity, setQuantity, onMore, onLess } = useQuantity();
 
   const data: any = localStorage.getItem('cart');
-  console.log(product.url_image)
+  console.log(product)
   return (
     <div className='product'>
       {confirm && (
@@ -29,7 +29,7 @@ function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct
       <h1>{product.name}</h1>
       <img src={product.url_image} alt={product.url_image} />
       <p>R${product.price}</p>
-      <div>
+      <div className='product__input'>
         <button onClick={onLess}>-</button>
         <input type="number" value={quantity} onChange={(event: any) => {
           setQuantity(Number(event.target.value));
@@ -39,7 +39,7 @@ function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct
         } } placeholder={`${quantity}`}/>
         <button onClick={onMore}>+</button>
       </div>
-      <button onClick={() => {
+      <button className='add__to__cart' onClick={() => {
         const cart = JSON.parse(data)
 
         if(cart && (Number(cart.seller_id) !== Number(product.seller_id)) && cart.seller_id !== null) {
