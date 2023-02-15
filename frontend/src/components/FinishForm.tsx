@@ -27,7 +27,7 @@ function FinishForm({loading, history, cartInfo, setCartInfo, disabled, setDisab
             await createNewSale(cartInfo, setCartInfo);
             history.push('/my_shopping')
           }}>
-            <input type="text" onChange={handleChange} name="delivery_address" placeholder="Endereço" />
+            <input className='form_finish' type="text" onChange={handleChange} name="delivery_address" placeholder="Endereço" />
             <input type="number" onChange={handleChange} name="delivery_number" placeholder="numero" />
             <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart}  cartInfo={cartInfo} setCartInfo={setCartInfo} history={history} finishPayment={true} setDisabled={setDisabled} />
             <div>

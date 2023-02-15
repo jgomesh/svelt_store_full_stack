@@ -9,7 +9,6 @@ function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct
   const { quantity, setQuantity, onMore, onLess } = useQuantity();
 
   const data: any = localStorage.getItem('cart');
-  console.log(product)
   return (
     <div className='product'>
       {confirm && (

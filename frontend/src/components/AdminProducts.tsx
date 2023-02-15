@@ -3,6 +3,7 @@ import ICarInfo from '../interfaces/ICarInfo';
 import getProducts from '../utils/api/getAdminProducts';
 import Product from './Product';
 import { Swiper, SwiperSlide} from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from "swiper";
 
 import 'swiper/css';
 
@@ -29,13 +30,19 @@ function AdminProducts({ setCartInfo, cartInfo, userId }: {setCartInfo: Function
       {loading ? "Loading..." : (
         <>
           <Swiper
-            className='my_swipper'
-            slidesPerView={1.7}
-            spaceBetween={20}  
+            spaceBetween={30}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+        
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+  
             breakpoints={{
             1200: {
               slidesPerView: 3,
-            },
+            }
           }}>
             {productsData.products.map((product: { id: number, name: string, url_image: string, price: string, seller_id: number}, index: number) => (
               <SwiperSlide>

@@ -13,9 +13,8 @@ function PromotionsSection() {
       delay: 3500,
       disableOnInteraction: false,
     }}
-    pagination={{
-      clickable: true,
-    }}
+
+    pagination={true}
     navigation={true}
     modules={[Autoplay, Pagination, Navigation]}
   >

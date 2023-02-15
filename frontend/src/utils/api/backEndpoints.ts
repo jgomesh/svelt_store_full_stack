@@ -18,6 +18,7 @@ const endpoints: any =  {
   seller_sells: `${BASE_URL}/seller_sells`,
   seller_name: `${BASE_URL}/seller_name`,
   register: `${BASE_URL}/register`,
+  register_seller: `${BASE_URL}/register_seller`,
   sell: `${BASE_URL}/sell`,
 };
 

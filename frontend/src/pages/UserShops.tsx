@@ -2,8 +2,11 @@ import { useEffect, useState } from 'react';
 import useLoginEffect from '../hooks/LoginEffect';
 import Cart from '../components/Cart';
 import IProps from '../interfaces/IProps';
-import ProductsDetails from '../components/ProductsDetails';
+import AdminProducts from '../components/AdminProducts';
+import Footer from '../components/Footer';
+import PromotionsSection from '../sections/PromotionsSection';
 import getUserSells from '../utils/api/getUserSells';
+import ProductsDetails from '../components/ProductsDetails';
 import Header from '../components/Header';
 
 function UserShops(props: IProps) {
@@ -26,15 +29,15 @@ function UserShops(props: IProps) {
 
   return (
     <>
-      {loading ? "Loading..." : (
-        <section>
-          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} roleSeller={roleSeller} name={userData.name} history={props.history} roleUser={roleUser} />
+        <section className='sales_container'>
+          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
           <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} />
           <ProductsDetails userShops={userShops} history={props.history}/>
         </section>
-      )}
+      <Footer setLoginOpen={() => {}} />
     </>
   );
 }
 
 export default UserShops;
+

@@ -8,8 +8,11 @@ import './styles/components/c__girl.css';
 import './styles/components/footer.css';
 import './styles/components/Cart.css';
 import './styles/pages/register__section.css';
+import './styles/pages/ProductsDetails.css';
 import './styles/components/Product.css'
 import './styles/sections/PromotionsSection.css'
+import './styles/sections/Sellers.css'
+import './styles/sections/FinishPayment.css'
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter as Router,
@@ -38,10 +41,10 @@ root.render(
           <Route exact path="/" render={(props) => <Login {...props} />}/>
           <Route exact path="/new_product"render={(props) => <ProductRegistration {...props} />}/>
           <Route path="/register"render={(props) => <Register {...props} />}/>
-          <Route path="/home"render={(props) => <Home {...props} />}/>
+          <Route path="/home" render={(props) => <Home {...props} />}/>
           <Route path="/finish"render={(props) => <FinishPayment {...props} />}/>
-          <Route exact path="/my_sells"render={(props) => <SellerSells {...props} />}/>
-          <Route exact path="/my_shopping"render={(props) => <UserShops {...props} />}/>
+          <Route exact path="/my_sells" render={(props) => <SellerSells {...props} />}/>
+          <Route exact path="/my_shopping" render={(props) => <UserShops {...props} />}/>
           <Route exact path="/my_products"render={(props) => <SellerProducts {...props} />}/>
           <Route exact path="/products/:id"render={(props) => <SellerDetails {...props} />}/>
           <Route path="/user_sells/:id"render={(props) => <ShopDetails {...props} />}/>
