@@ -29,8 +29,8 @@ function Home(props: IProps) {
 
   return (
     <>
+        <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
         <section>
-          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
           { userData.role && roleUser && <Cart  setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
           { userData.role && roleUser && <AdminProducts setCartInfo={setCartInfo} cartInfo={cartInfo} userId={userData.userId} /> }
           <PromotionsSection />

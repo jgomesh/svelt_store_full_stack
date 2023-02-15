@@ -29,11 +29,11 @@ function UserShops(props: IProps) {
 
   return (
     <>
-        <section className='sales_container'>
-          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
-          <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} />
-          <ProductsDetails userShops={userShops} history={props.history}/>
-        </section>
+      <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
+      <section className='sales_container'>
+        <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} />
+        <ProductsDetails userShops={userShops} history={props.history}/>
+      </section>
       <Footer setLoginOpen={() => {}} />
     </>
   );

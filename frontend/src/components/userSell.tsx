@@ -29,15 +29,13 @@ function UserSell({ name, sale_date, status, total_price, history, id }: { id: n
     <div>
       {loading ? "Loading..." : (
         <>
-          <h3> {`Seller: ${sellerName.name}`} </h3>
-          <span>{sale_date}</span>
-          <p>{statusSell}</p>
-          <span>total: {Number(total_price).toFixed(2)}</span>
-          <div>
-            <button onClick={(event) => redirect(event, history, `/user_sells/${id}`)}>
-              View More
-            </button>
-          </div>
+          <h3> {`Vendedor: ${sellerName.name}`} </h3>
+          <span>{sale_date.split(' ')[0]}</span>
+          <p className={`sell_status ${statusSell.replace(' ', '_')}`}>{statusSell}</p>
+          <span>Total: {Number(total_price).toFixed(2)}</span>
+          <button onClick={(event) => redirect(event, history, `/user_sells/${id}`)}>
+            View More
+          </button>
           {statusSell === 'a caminho' && (
             <button onClick={confirmDeliver}>
               CONFIRMAR ENTREGA

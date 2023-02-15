@@ -9,14 +9,15 @@ function Header({ history, name, roleUser, roleSeller,  setHiddeCart, hiddeCart 
     localStorage.removeItem('cart');
     redirect({ preventDefault: () => {}}, history, '/')
   }
+  console.log(roleUser)
   return (
     <header>
       <span className='logo' onClick={(event) => redirect(event, history, '/home')}>Svelt</span>
       <nav className='nav__container'>
         <button onClick={(event) => redirect(event, history, ( roleUser ? '/my_shopping' : '/my_sells' ))}>
-          { roleUser ? <FontAwesomeIcon icon={faBagShopping}/> : "My Sells" }
+          { roleSeller ? "My Sells" : <FontAwesomeIcon icon={faBagShopping}/>}
         </button>
-        { roleUser ? <button onClick={() => setHiddeCart(!hiddeCart)}><FontAwesomeIcon onMouseEnter={() => console.log('teste')} icon={faCartShopping}/></button> : "" }
+        { roleSeller ? "" : <button onClick={() => setHiddeCart(!hiddeCart)}><FontAwesomeIcon onMouseEnter={() => console.log('teste')} icon={faCartShopping}/></button> }
         {roleSeller && (
           <button onClick={(event) => redirect(event, history, '/new_product')}>
             New Product
