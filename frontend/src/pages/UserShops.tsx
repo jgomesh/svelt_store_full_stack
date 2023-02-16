@@ -2,9 +2,8 @@ import { useEffect, useState } from 'react';
 import useLoginEffect from '../hooks/LoginEffect';
 import Cart from '../components/Cart';
 import IProps from '../interfaces/IProps';
-import AdminProducts from '../components/AdminProducts';
+import Loading from '../components/Loading';
 import Footer from '../components/Footer';
-import PromotionsSection from '../sections/PromotionsSection';
 import getUserSells from '../utils/api/getUserSells';
 import ProductsDetails from '../components/ProductsDetails';
 import Header from '../components/Header';
@@ -31,8 +30,12 @@ function UserShops(props: IProps) {
     <>
       <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
       <section className='sales_container'>
-        <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} />
-        <ProductsDetails userShops={userShops} history={props.history}/>
+      {loading? <Loading /> : (
+        <>
+          <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} />
+          <ProductsDetails userShops={userShops} history={props.history}/>
+        </>
+        )}
       </section>
       <Footer setLoginOpen={() => {}} />
     </>

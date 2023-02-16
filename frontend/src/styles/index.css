@@ -23,3 +23,12 @@ body {
 .my_swipper {
   margin: 64px 0px 64px 0px;
 }
+
+.loading_section {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 60px;
+  z-index: 1000;
+}

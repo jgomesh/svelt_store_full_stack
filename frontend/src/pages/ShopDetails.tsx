@@ -6,6 +6,7 @@ import getUserSaleDetails from '../utils/api/getUserSaleDetails';
 import useLoginEffect from '../hooks/LoginEffect';
 import IProps from '../interfaces/IProps';
 import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 
 function ShopDetails(props: IProps) {
   const [shopDetails, setShopDetails] = useState({ products: [], delivery_address: '', delivery_number: '', status: '', total_price: 0, sale_date: '' });
@@ -38,15 +39,19 @@ function ShopDetails(props: IProps) {
     <>
         <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} roleSeller={roleSeller} roleUser={roleUser} name={userData.name} history={props.history} />
         <section>
-          <div className="product_container">
-            <h3 className='data_de_compra'>{`Data da compra: ${shopDetails.sale_date.split(' ')[0]}`}</h3>
-            <h1 className={`data_de_compra ${shopDetails.status.replace(' ', '_')}`}>{`${shopDetails.status}`}</h1>
-            <ShopDetailsProd shopDetails={shopDetails} />
-            <div className='data_de_compra'>
-              <span>{`Adress: ${shopDetails.delivery_address}, ${shopDetails.delivery_number}`}</span>
-              <p>{`Total: ${Number(shopDetails.total_price).toFixed(2)}`}</p>
-            </div>
-          </div>
+          {loading ? <Loading /> : (
+            <>
+              <div className="product_container">
+                <h3 className='data_de_compra'>{`Data da compra: ${shopDetails.sale_date.split(' ')[0]}`}</h3>
+                <h1 className={`data_de_compra ${shopDetails.status.replace(' ', '_')}`}>{`${shopDetails.status}`}</h1>
+                <ShopDetailsProd shopDetails={shopDetails} />
+                <div className='data_de_compra'>
+                  <span>{`Adress: ${shopDetails.delivery_address}, ${shopDetails.delivery_number}`}</span>
+                  <p>{`Total: ${Number(shopDetails.total_price).toFixed(2)}`}</p>
+                </div>
+              </div>
+            </>
+          )}
         </section>
         <Footer setLoginOpen={() => {}} />
     </>

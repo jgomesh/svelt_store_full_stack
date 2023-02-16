@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import redirect from '../utils/redirect';
 import Footer from '../components/Footer';
 import PromotionsSection from '../sections/PromotionsSection';
+import Loading from '../components/Loading';
 import AdminProducts from '../components/AdminProducts';
 
 function Home(props: IProps) {
@@ -30,19 +31,23 @@ function Home(props: IProps) {
   return (
     <>
         <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
-        <section>
-          { userData.role && roleUser && <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
-          { userData.role && roleUser && <AdminProducts setCartInfo={setCartInfo} cartInfo={cartInfo} userId={userData.userId} /> }
-          <PromotionsSection />
-          {loading ? 'Loading...' : sellers.map((seller: any, index: number) => {
-            return (
-            <div className='seller_container' key={index}>
-              <h4>{seller.name}</h4>
-              <button onClick={() => redirect({ preventDefault: () => {} }, props.history, `/products/${seller.id}` )}>
-                VIEW PRODUCTS
-              </button>
-            </div>
-          )})}
+        <section className='min_height'>
+        { loading ? <Loading />: (
+          <>
+            { userData.role && roleUser && <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
+            { userData.role && roleUser && <AdminProducts setCartInfo={setCartInfo} cartInfo={cartInfo} userId={userData.userId} /> }
+            <PromotionsSection />
+            {sellers.map((seller: any, index: number) => {
+              return (
+              <div className='seller_container' key={index}>
+                <h4>{seller.name}</h4>
+                <button onClick={() => redirect({ preventDefault: () => {} }, props.history, `/products/${seller.id}` )}>
+                  VIEW PRODUCTS
+                </button>
+              </div>
+            )})}
+          </>
+            ) }
         </section>
       <Footer setLoginOpen={() => {}} />
     </>
