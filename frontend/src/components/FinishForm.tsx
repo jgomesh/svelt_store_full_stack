@@ -20,16 +20,19 @@ function FinishForm({loading, history, cartInfo, setCartInfo, disabled, setDisab
   return (
     <>
       {loading ? "Loading..." : (
-        <section>
-          <form onSubmit={async (event: { preventDefault: Function}) => {
-            event.preventDefault();
-            setDisabled(true);
-            await createNewSale(cartInfo, setCartInfo);
-            history.push('/my_shopping')
-          }}>
-            <input className='form_finish' type="text" onChange={handleChange} name="delivery_address" placeholder="Endereço" />
-            <input type="number" onChange={handleChange} name="delivery_number" placeholder="numero" />
+        <section className='payment_section'>
+          <form
+            className='form_finish_payment'
+            onSubmit={async (event: { preventDefault: Function}) => {
+              event.preventDefault();
+              setDisabled(true);
+              await createNewSale(cartInfo, setCartInfo);
+              history.push('/my_shopping')
+            }}
+          >
             <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart}  cartInfo={cartInfo} setCartInfo={setCartInfo} history={history} finishPayment={true} setDisabled={setDisabled} />
+            <input className='form_finish' type="text" onChange={handleChange} name="delivery_address" placeholder="Endereço" />
+            <input type="number" onChange={handleChange} name="delivery_number" placeholder="Número" />
             <div>
               <button disabled={disabled}>
                 CONFIRMAR COMPRA

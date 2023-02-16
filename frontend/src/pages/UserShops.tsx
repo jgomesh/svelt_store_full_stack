@@ -11,7 +11,7 @@ import Header from '../components/Header';
 
 function UserShops(props: IProps) {
   const { userData, loading, cartInfo, setCartInfo } = useLoginEffect(props.history);
-  const [ hiddeCart, setHiddeCart] = useState(false);
+  const [ hiddeCart, setHiddeCart] = useState(true);
   const [userShops, setUserShops] = useState([]);
   const roleUser = (userData.role === 'user');
   const roleSeller = (userData.role === 'seller' || userData.role === 'admin');

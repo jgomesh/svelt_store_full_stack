@@ -5,7 +5,7 @@ function EditButtons({product, editOn, onMore, quantity, onLess, avoidMax}: IEdi
   return (
     <>
       { editOn ? (
-        <div>
+        <div className="edit_cart_container">
           <button onClick={(event) => onMore(event)}>
             +
           </button>

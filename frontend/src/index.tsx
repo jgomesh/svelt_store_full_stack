@@ -9,11 +9,11 @@ import './styles/components/footer.css';
 import './styles/components/Cart.css';
 import './styles/pages/register__section.css';
 import './styles/pages/ProductsDetails.css';
+import './styles/pages/FinishPayment.css';
 import './styles/pages/ShopDetails.css';
 import './styles/components/Product.css'
 import './styles/sections/PromotionsSection.css'
 import './styles/sections/Sellers.css'
-import './styles/sections/FinishPayment.css'
 import ReactDOM from 'react-dom/client';
 import {
   BrowserRouter as Router,

@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import { useState } from 'react';
 import useLoginEffect from '../hooks/LoginEffect';
 import IProps from '../interfaces/IProps';
+import Footer from '../components/Footer';
 import FinishForm from '../components/FinishForm';
 
 function FinishPayment(props: IProps) {
@@ -31,6 +32,7 @@ function FinishPayment(props: IProps) {
             setDisabled={setDisabled}
             disabled={disabled}
           />
+          <Footer setLoginOpen={() => {}}/>
         </section>
       )}
     </>
