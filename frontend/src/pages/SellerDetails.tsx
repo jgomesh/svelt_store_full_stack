@@ -5,10 +5,12 @@ import Cart from '../components/Cart';
 import Product from '../components/Product';
 import getSellerProducts from '../utils/api/getSellerProducts';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
+import Footer from '../components/Footer';
 
 function SellerDetails(props: IProps) {
   const [sellerProducts, setSellerProducts] = useState([]);
-  const [ hiddeCart, setHiddeCart] = useState(false);
+  const [ hiddeCart, setHiddeCart] = useState(true);
   const { userData, loading, setLoading, cartInfo, setCartInfo } = useLoginEffect(props.history);
 
   useEffect(() => {
@@ -17,6 +19,7 @@ function SellerDetails(props: IProps) {
       const products = await getSellerProducts('my_products', props.match.params.id);
       setSellerProducts(products.products);
       setLoading(false);
+      console.log(sellerProducts)
     };
     getProducts();
   }, []);
@@ -25,15 +28,18 @@ function SellerDetails(props: IProps) {
   const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
   return (
     <>
-      {loading ? "Loading..." : (
-        <section>
-          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
-          { userData.role && roleUser && <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
-          {sellerProducts.map((product: any, index: number) => (
-            <Product userId={userData.userId} key={index} product={product} setCartInfo={setCartInfo} cartInfo={cartInfo} />
-          ))}
-        </section>
-      )}
+      <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
+      <section>
+        {loading ? <Loading /> : (
+          <>
+            { userData.role && roleUser && <Cart setHiddeCart={setHiddeCart} hiddeCart={hiddeCart} cartInfo={cartInfo} setCartInfo={setCartInfo} history={props.history} finishPayment={false} setDisabled={() => {}} /> }
+            {sellerProducts.map((product: any, index: number) => (
+              <Product userId={userData.userId} key={index} product={product} setCartInfo={setCartInfo} cartInfo={cartInfo} />
+            ))}
+          </>
+        )}
+      </section>
+      <Footer setLoginOpen={() => {}} />
     </>
   );
 }

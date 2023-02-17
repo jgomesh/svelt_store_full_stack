@@ -15,8 +15,14 @@ module.exports = {
         role: "user"
       },
       {
-        name: 'Bobs Lanche',
-        email: 'bobslanche@gmail.com',
+        name: 'Hugo Store',
+        email: 'hugostore@gmail.com',
+        password: '$2b$10$8XxY5TBqHQBbLBelI1HUx.DarrSnZpma0AolVPgPs/iXaD8e5yx1C',
+        role: "seller"
+      },
+      {
+        name: 'Aerre Store',
+        email: 'aerrestore@gmail.com',
         password: '$2b$10$8XxY5TBqHQBbLBelI1HUx.DarrSnZpma0AolVPgPs/iXaD8e5yx1C',
         role: "seller"
       }

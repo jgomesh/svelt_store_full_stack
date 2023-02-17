@@ -67,6 +67,24 @@ module.exports = {
         url_image: 'http://localhost:3001/images/calca_gucci.jpeg',
         seller_id: 1
       },
+      {
+        name: 'Bermuda Hugo Boss',
+        price: 280.89,
+        url_image: 'http://localhost:3001/images/bermuda_hugo_boss.jpeg',
+        seller_id: 3
+      },
+      {
+        name: 'Chinelo Lacoste',
+        price: 200.57,
+        url_image: 'http://localhost:3001/images/chinelo_lacoste.jpeg',
+        seller_id: 3
+      },
+      {
+        name: 'Calça Gucci',
+        price: 3020.49,
+        url_image: 'http://localhost:3001/images/calca_gucci.jpeg',
+        seller_id: 3
+      }
     ], { timestamps: false });
   },
 
