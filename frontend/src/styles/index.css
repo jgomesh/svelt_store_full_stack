@@ -12,7 +12,8 @@ body {
   justify-content: center;
   height: 100%;
   width: 100%;
-  position: fixed;
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.39);
 }
 
 .slider {
