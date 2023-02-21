@@ -9,11 +9,31 @@ body {
   left: 0;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  text-align: center;
+  color: white;
   height: 100%;
   width: 100%;
   position: absolute;
+  padding: 64px;
+  gap: 24px;
   background-color: rgba(255, 0, 0, 0.39);
+}
+
+.confirm_button {
+  background-color: black;
+  border: none;
+  color: white;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.confirm_button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(2, 2, 2);
 }
 
 .slider {

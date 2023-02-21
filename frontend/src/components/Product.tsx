@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useQuantity from '../hooks/useQuantity';
 import ICarInfo from '../interfaces/ICarInfo';
 import IProduct from '../interfaces/IProduct';
+import ConfirmChange from './ConfirmChange';
 import addToCart from '../utils/addToCart';
 
 function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct, setCartInfo: Function, cartInfo: ICarInfo, userId: number }) {
@@ -12,18 +13,16 @@ function Product({ product, setCartInfo, cartInfo, userId }: { product: IProduct
   return (
     <>
       {confirm && (
-        <div className='confirm_change_cart'>
-          That product is from another seller, do you want to clear your cart and add that product?
-          <button
-            onClick={async () => {
-              await addToCart(quantity, product, cartInfo, userId, setCartInfo, setQuantity);
-              setConfirm(false);
-            }}
-            name="Clear cart and add product"
-          >
-            Confirm
-          </button>
-        </div>
+        <ConfirmChange
+          confirm={confirm}
+          setConfirm={setConfirm}
+          quantity={quantity}
+          setQuantity={setQuantity}
+          product={product}
+          cartInfo={cartInfo}
+          userId={userId}
+          setCartInfo={setCartInfo}
+        />
       )}
       <div className='product'>
         <h1>{product.name}</h1>
