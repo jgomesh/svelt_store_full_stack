@@ -4,6 +4,7 @@
 
 .product_container {
   padding: 24px;
+  min-height: 60vh;
   margin: 64px auto 64px auto;
 }
 
