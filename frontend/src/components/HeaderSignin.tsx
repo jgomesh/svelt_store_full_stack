@@ -7,7 +7,7 @@ function HeaderSignin ({setLoginOpen, history}: {setLoginOpen: Function, history
     <header>
       <span className='logo' onClick={(event) => redirect(event, history, '/')}>Svelt</span>
       <div>
-        <FontAwesomeIcon onMouseEnter={() => setLoginOpen(true)} className='signout' icon={faSignIn} />
+        <FontAwesomeIcon onClick={() => setLoginOpen(true)} className='signout' icon={faSignIn} />
       </div>
     </header>
   );

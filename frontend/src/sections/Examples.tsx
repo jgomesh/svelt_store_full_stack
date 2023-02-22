@@ -1,6 +1,6 @@
 function Examples({ setLoginOpen } : { setLoginOpen: Function }) {
   return (
-    <section className='examples' onMouseEnter={() => setLoginOpen(false)}>
+    <section className='examples' onClick={() => setLoginOpen(false)}>
       <div className='clouth__example__1'>
 
       </div>

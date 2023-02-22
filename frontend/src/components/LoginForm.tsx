@@ -7,7 +7,7 @@ import redirect from '../utils/redirect';
 function LoginForm({ setLoading, userInfo, history, setUserInfo, loading, loginOpen, setLoginOpen }: ILoginForm) {
   const [error, setError] = useState(false)
   return (
-    <form className={`login__section__form${loginOpen? '' : '__hidden'}`} onSubmit={(target: any) => login(target, setLoading, userInfo, setError, history)} onMouseLeave={() => setLoginOpen(false)}>
+    <form className={`login__section__form${loginOpen? '' : '__hidden'}`} onSubmit={(target: any) => login(target, setLoading, userInfo, setError, history)}>
       <input onChange={(event) => handleChange(event, setUserInfo, userInfo)} type="email" name="email" placeholder="Your email" />
       <input  onChange={(event) => handleChange(event, setUserInfo, userInfo)} type="password" name="password" placeholder="Your password" />
       {loading? 'Loading...' : (

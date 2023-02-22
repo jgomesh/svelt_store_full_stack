@@ -2,7 +2,7 @@ function HeroBanner({ setLoginOpen} : {setLoginOpen: Function}) {
   return (
     <section
       className='hero_banner'
-      onMouseEnter={() => setLoginOpen(false)}
+      onClick={() => setLoginOpen(false)}
     >
       <p>
         Roupas para <span>todos os estilos</span> e ocasiões.

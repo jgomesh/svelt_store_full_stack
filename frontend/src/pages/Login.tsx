@@ -16,7 +16,7 @@ function Login(props: IProps) {
   const [error, setError] = useState(false);
 
   return (
-    <>
+    <section className='black_background'>
       <HeaderSignin setLoginOpen={setLoginOpen} history={props.history} />
       <HeroBanner setLoginOpen={setLoginOpen} />
       <Examples setLoginOpen={setLoginOpen} />
@@ -33,7 +33,7 @@ function Login(props: IProps) {
         history={props.history}
       />
       <Footer setLoginOpen={setLoginOpen} />
-    </>
+    </ section>
   );
 }
 

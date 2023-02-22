@@ -21,7 +21,7 @@ function RegisterForm({ setLoading, userInfo, setError, setRegistered, disabled,
   };
 
   return (
-    <section className='register__form__section' onMouseEnter={() => setLoginOpen(false)} >
+    <section className='register__form__section' onClick={() => setLoginOpen(false)} >
       <form className='register__form' onSubmit={(target:any) => {
         signIn(target, setLoading, userInfo, setError, setRegistered, role)
         setUserInfo({ email: '', password: '', name: ''});

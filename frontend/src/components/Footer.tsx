@@ -1,6 +1,6 @@
 function Footer({ setLoginOpen } : { setLoginOpen: Function }) {
   return (
-    <footer onMouseEnter={() => setLoginOpen(false)}>
+    <footer onClick={() => setLoginOpen(false)}>
       <div></div>
       <span>
         Site fictício, entre em contato por <b>joao.gomeshugill@gmail.com</b>
