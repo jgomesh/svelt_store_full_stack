@@ -145,7 +145,6 @@
     min-width: 100%;
     overflow-y: scroll;
     align-items: center;
-    justify-content: center;
     top: 60px;
     z-index: 100;
     border: 2px solid black;
