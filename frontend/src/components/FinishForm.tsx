@@ -1,11 +1,9 @@
 import Cart from '../components/Cart';
-import { useState } from 'react';
 import ICarInfo from '../interfaces/ICarInfo';
 import IFisishForm from '../interfaces/IFinishForm';
 import createNewSale from '../utils/createNewSale';
 
-function FinishForm({loading, history, cartInfo, setCartInfo, disabled, setDisabled }: IFisishForm) {
-  const [ hiddeCart, setHiddeCart] = useState(false);
+function FinishForm({loading, history, cartInfo, setCartInfo, disabled, setDisabled, hiddeCart, setHiddeCart }: IFisishForm) {
   const handleChange = (event: any) => {
     const newInfo: ICarInfo = {...cartInfo, [event.target.name]: event.target.value};
     setCartInfo(newInfo);
