@@ -15,8 +15,7 @@ body {
   color: white;
   height: 100%;
   width: 100%;
-  position: absolute;
-  padding: 64px;
+  position: fixed;
   gap: 24px;
   background-color: rgba(255, 0, 0, 0.39);
 }
@@ -51,6 +50,9 @@ body {
   height: 100%;
   width: 100%;
   top: 60px;
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
   z-index: 1000;
 }
 
