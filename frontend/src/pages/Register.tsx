@@ -31,13 +31,11 @@ function Register(props: IProps) {
         />
         <RegisterForm
           setLoginOpen={setLoginOpen}
-          setLoading={setLoading}
           userInfo={userInfo}
           setError={setError}
           setUserInfo={setUserInfo}
           disabled={disabled}
           setDisabled={setDisabled}
-          loading={loading}
           registered={registered}
           setRegistered={setRegistered}
           error={error}

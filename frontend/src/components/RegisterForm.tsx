@@ -7,8 +7,9 @@ import IRegistered from '../interfaces/IRegistered';
 import validatePassword from '../utils/validations/validatePassword';
 import signIn from '../utils/signIn';
 
-function RegisterForm({ setLoading, userInfo, setError, setRegistered, disabled, error, registered, loading, setUserInfo, setDisabled, setLoginOpen } : IRegistered ) {
+function RegisterForm({ userInfo, setError, setRegistered, disabled, error, registered, setUserInfo, setDisabled, setLoginOpen } : IRegistered ) {
   const [ role, setRole ]: any = useState('register');
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event: any) => {
     const newInfo: IUserInfo = {...userInfo, [event.target.name]: event.target.value};
