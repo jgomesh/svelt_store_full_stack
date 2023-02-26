@@ -1,0 +1,33 @@
+.seller_sells_section {
+  min-height: 80vh;
+  margin-top: 100px;
+}
+
+.register_seller_product {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+  min-height: 80vh;
+}
+
+.register_seller_product form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.register_seller_product form input {
+  border-radius: 4px;
+  padding: 8px;
+  font-weight: 700;
+}
+
+.register_seller_product form button {
+  background-color: black;
+  border: none;
+  padding: 8px;
+  color: white;
+  border-radius: 4px;
+  font-weight: 700;
+}

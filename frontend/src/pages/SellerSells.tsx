@@ -3,6 +3,8 @@ import useLoginEffect from '../hooks/LoginEffect';
 import IProps from '../interfaces/IProps';
 import SellItem from '../components/SellItem';
 import getUserSells from '../utils/api/getUserSells';
+import Footer from '../components/Footer';
+import Loading from '../components/Loading';
 import Header from '../components/Header';
 
 function SellerSells(props: IProps) {
@@ -28,14 +30,17 @@ function SellerSells(props: IProps) {
 
   return (
     <>
-      {loading ? "Loading..." : (
-        <section>
-          <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
+      <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
+      <section className='seller_sells_section'>
+        {loading ? <Loading /> : (
+        <>
           {sellerSells.map((sell: any, index: number) => (
             <SellItem key={index} sell={sell} />
           )).reverse()}
-        </section>
-      )}
+        </>
+        )}
+      </section>
+      <Footer setLoginOpen={() => {}}/>
     </>
   );
 }
