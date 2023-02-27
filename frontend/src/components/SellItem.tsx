@@ -55,13 +55,13 @@ function SellItem({ sell }: any) {
                   ))}
                   <div className="total_price_seller">{`total: ${sell.total_price}`}</div>
                   {saleStatus === "em espera" && (
-                    <div>
+                    <div className="seller_buttons">
                       <button onClick={nextStatus}>ACEITAR COMPRA</button>
                       <button onClick={cancelStatus}>RECUSAR COMPRA</button>
                     </div>
                   )}
                   {saleStatus === "em preparo" && (
-                    <div>
+                    <div className="seller_buttons">
                       <button onClick={nextStatus}>ENVIAR COMPRA</button>
                     </div>
                   )}
