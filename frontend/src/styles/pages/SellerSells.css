@@ -1,6 +1,9 @@
 .seller_sells_section {
   min-height: 80vh;
   margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
 }
 
 .register_seller_product {
@@ -30,4 +33,18 @@
   color: white;
   border-radius: 4px;
   font-weight: 700;
+}
+
+.seller_product {
+  max-height: 300px;
+}
+
+.product_div {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.total_price_seller {
+  margin-top: 16px;
 }

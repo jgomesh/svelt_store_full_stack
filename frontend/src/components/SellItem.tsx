@@ -40,18 +40,20 @@ function SellItem({ sell }: any) {
     
             <div>
               {loading ? "Loading..." : (
-                <div>
+                <div className="product_div">
                   <p>{`Status: ${saleStatus}`}</p>
                   <p>{`Address: ${sell.delivery_address}, ${sell.delivery_number}`}</p>
                   <p>{`Sale date: ${sell.sale_date}`}</p>
                   {products.map((product: any, index: number) => (
-                    <div key={index}>
-                      <h4>{product.name}</h4>
-                      <img src={product.url_image} alt={product.name}/>
+                    <>
+                      <div key={index}>
+                        <h4>{product.name}</h4>
+                        <img className="seller_product" src={product.url_image} alt={product.name}/>
+                      </div>
                       <span>{`${product.quantity} X R$${product.price}`}</span>
-                    </div>
+                    </>
                   ))}
-                  <span>{`total: ${sell.total_price}`}</span>
+                  <div className="total_price_seller">{`total: ${sell.total_price}`}</div>
                   {saleStatus === "em espera" && (
                     <div>
                       <button onClick={nextStatus}>ACEITAR COMPRA</button>
