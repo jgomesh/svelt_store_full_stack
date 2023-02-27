@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getProductById from "../utils/api/getProductById";
 import updateStatus from "../utils/api/updateStatus";
+import Loading from "./Loading";
 import getUserSaleDetails from "../utils/api/getUserSaleDetails";
 
 function SellItem({ sell }: any) {
@@ -35,25 +36,30 @@ function SellItem({ sell }: any) {
     setStatus(update.status ? update.status : saleStatus);
     setLoading(false);
   }
-
+  
   return (
     
             <div>
-              {loading ? "Loading..." : (
+              {loading ? <Loading /> : (
                 <div className="product_div">
-                  <p>{`Status: ${saleStatus}`}</p>
+                  <p>{`Status: `} <span className={(saleStatus).replace(' ', '_')}>{`${saleStatus}`}</span></p>
                   <p>{`Address: ${sell.delivery_address}, ${sell.delivery_number}`}</p>
-                  <p>{`Sale date: ${sell.sale_date}`}</p>
-                  {products.map((product: any, index: number) => (
-                    <>
-                      <div key={index}>
-                        <h4>{product.name}</h4>
-                        <img className="seller_product" src={product.url_image} alt={product.name}/>
-                      </div>
-                      <span>{`${product.quantity} X R$${product.price}`}</span>
-                    </>
-                  ))}
-                  <div className="total_price_seller">{`total: ${sell.total_price}`}</div>
+                  <p className="sale_date">{`Sale date: ${sell.sale_date}`}</p>
+                  <div className="seller_products">
+                    {products.map((product: any, index: number) => (
+                      <>
+                        <div key={index}>
+                          <div>
+                            <h4>{product.name}</h4>
+                            <span>{`${product.quantity} X R$${product.price}`}</span>
+                          </div>
+                          <img className="seller_product" src={product.url_image} alt={product.name}/>
+                          <div></div>
+                        </div>
+                      </>
+                    ))}
+                  </div>
+                  <div className="total_price_seller">{`Total: ${sell.total_price}`}</div>
                   {saleStatus === "em espera" && (
                     <div className="seller_buttons">
                       <button onClick={nextStatus}>ACEITAR COMPRA</button>

@@ -45,17 +45,24 @@
 }
 
 .em_preparo {
-  color: rgb(251, 255, 6);
+  color: rgb(216, 219, 39);
+  text-transform: capitalize;
 }
 
 .a_caminho {
   color: rgb(0, 0, 0);
+  text-transform: capitalize;
 }
 
 .entregue {
   color: rgb(2, 228, 2);
+  text-transform: capitalize;
 }
 
+.canceled {
+  color: rgb(0, 0, 0);
+  text-transform: capitalize;
+}
 
 @media screen and (max-width: 680px) {
   .sales_container {
