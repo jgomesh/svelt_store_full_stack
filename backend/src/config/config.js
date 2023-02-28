@@ -1,8 +1,8 @@
 const config = {
-    username: 'root',
+    username: 'postgres',
     password: '123456',
     database: 'tsauth',
-    host: 'db',
+    host: 'localhost',
     port: 5432,
     dialect: 'postgres',
     logging: false,

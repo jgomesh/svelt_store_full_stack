@@ -6,6 +6,7 @@ import status from './database/routes/status';
 import sales from './database/routes/sells';
 import users from './database/routes/users';
 import sequelize from './database/instances/sequelize';
+import multer from './database/routes/multer';
 import 'dotenv/config';
 
 const app = express();
@@ -19,6 +20,8 @@ app.use(products);
 app.use(sales);
 app.use(users);
 app.use(status);
+app.use(multer);
+
 app.use('/images', express.static('images')); 
 sequelize.sync(() => console.log(`Banco de dados conectado:`));
 
