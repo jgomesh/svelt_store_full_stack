@@ -34,6 +34,10 @@ const LoginEffect = (history: { push: Function}) => {
     const requestData = async () => {
       const data = await getUser('auth');
       setUser(data);
+      if(data && data.name === 'AxiosError') {
+        localStorage.setItem('token', '');
+        history.push('/');
+      }
       const products = await getSellerProducts('my_products', data.userId);
 
       setSellerProducts(products.products);

@@ -32,6 +32,11 @@ class ProductsController {
 
   async getAllProductsFromSeller(req: Request, res: Response) {
     const { id } = req.params
+  
+    if (id === 'undefined' || !id ) {
+      return res.sendStatus(409);
+    };
+  
     const ProductsExists = await Products.findAll({ where: { seller_id: id } });
 
     if(!ProductsExists) {
@@ -42,6 +47,11 @@ class ProductsController {
 
   async getProductById(req: Request | any, res: Response) {
     const { id } = req.params
+
+    if (id === 'undefined' || !id ) {
+      return res.sendStatus(409);
+    };
+  
     const ProductExists = await Products.findByPk(id);
 
     if(!ProductExists) {
@@ -53,6 +63,11 @@ class ProductsController {
   async delete(req: Request, res: Response) {
     try {
       const { id } = req.params;
+
+      if (id === 'undefined' || !id ) {
+        return res.sendStatus(409);
+      };
+
       const product = await Products.destroy({where: { id }});
       res.status(201).json({product});
     } catch (error: any) {

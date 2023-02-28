@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction} from 'express';
+
 import { verify } from 'jsonwebtoken';
 
 interface TokenPayload {
@@ -25,6 +26,12 @@ export default function authMiddleware(
 
     req.userId = id;
     req.role = role;
+    console.log("BACKGNEDD")
+    console.log(role)
+    console.log(id)
+    if((!id || id === 'undefined') || (!role || role === 'undefined')) {
+      return res.sendStatus(401);
+    }
     return next();
   } catch {
     return res.sendStatus(401);
