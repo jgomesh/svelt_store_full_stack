@@ -16,7 +16,7 @@ function Home(props: IProps) {
   const { userData, loading, cartInfo, setCartInfo, setLoading } = useLoginEffect(props.history);
   const roleUser = (userData.role === 'user');
   const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
-  console.log(roleSeller)
+  
   useEffect(() => {
     setLoading(true);
     const getSellers = async () => {
