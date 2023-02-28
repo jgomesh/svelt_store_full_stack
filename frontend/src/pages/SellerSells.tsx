@@ -9,10 +9,10 @@ import Header from '../components/Header';
 
 function SellerSells(props: IProps) {
   const { userData, loading, setLoading } = useLoginEffect(props.history);
+  const [roleSeller, setRoleSellet] = useState(!(userData.role === 'seller' || userData.role === 'admin'));
   const [sellerSells, setSellerShops] = useState([]);
   const [hiddeCart, setHiddeCart] = useState(false);
   const roleUser = (userData.role === 'user');
-  const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
 
   useEffect(() => {
     const getData = async () => {

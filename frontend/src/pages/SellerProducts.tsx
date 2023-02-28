@@ -5,17 +5,18 @@ import deleteItem from '../utils/api/deleteItem';
 import getSellerProducts from '../utils/api/getSellerProducts';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Loading from '../components/Loading';
 
 function SellerProducts(props: IProps) {
   const { userData, loading, setLoading, setSellerProducts, sellerProducts } = useLoginEffect(props.history);
+  const [roleSeller, setRoleSellet] = useState(!(userData.role === 'seller' || userData.role === 'admin'))
   const [hiddeCart, setHiddeCart] = useState(false);
   const roleUser = (userData.role === 'user');
-  const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
   return (
     <>
       <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} name={userData.name} history={props.history} roleUser={roleUser} roleSeller={roleSeller} />
           <section className='own_products_section'>
-            {loading ? "Loading..." : (
+            {loading ? <Loading /> : (
               <>
                 {sellerProducts.map((product: any, index: number) => (
                   <div className='own_products_div' key={index}>

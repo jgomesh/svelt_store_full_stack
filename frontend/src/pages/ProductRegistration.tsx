@@ -13,7 +13,7 @@ function ProductRegistration(props: IProps) {
   const [ hiddeCart, setHiddeCart] = useState(false);
   const { userData, loading } = useLoginEffect(props.history);
   const roleUser = (userData.role === 'user');
-  const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
+  const [roleSeller, setRoleSellet] = useState(!(userData.role === 'seller' || userData.role === 'admin'));
   return (
     <>
       <Header hiddeCart={hiddeCart} setHiddeCart={setHiddeCart} roleSeller={roleSeller} name={userData.name} history={props.history} roleUser={roleUser} />

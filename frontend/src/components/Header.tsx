@@ -20,12 +20,12 @@ function Header({ history, name, roleUser, roleSeller,  setHiddeCart, hiddeCart 
         { roleSeller ? "" : <button onClick={() => setHiddeCart(!hiddeCart)}><FontAwesomeIcon onMouseEnter={() => console.log('teste')} icon={faCartShopping}/></button> }
         {roleSeller && (
           <button onClick={(event) => redirect(event, history, '/new_product')}>
-            New Product
+            New
           </button>
         )}
         {roleSeller && (
           <button onClick={(event) => redirect(event, history, '/my_products')}>
-            My Products
+            My
           </button>
         )}
         <button onClick={() => logout(history)}>
