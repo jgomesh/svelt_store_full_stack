@@ -7,6 +7,8 @@ import IProps from '../interfaces/IProps';
 import Loading from '../components/Loading';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+const REACT_APP_BACKEND_HOST = '192.168.0.102'
+const REACT_APP_BACKEND_PORT = '3001'
 
 function ProductRegistration(props: IProps) {
   const [productData, setProductData]: any = useState({ name: '', price: 0, image: null });
@@ -22,10 +24,19 @@ function ProductRegistration(props: IProps) {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-
+    console.log(productData.image.name)
+    // Create a new FormData object
+    const formData = new FormData();
+    formData.append('imagem', productData.image);
+  
     // First, upload the image
-    const imageUrl = await addImage(productData.image);
-
+    const result: any = await addImage(formData);
+    if(!result.url) {
+      return "ERRO"
+    }
+    
+    const imageUrl = `http://${REACT_APP_BACKEND_HOST}:${REACT_APP_BACKEND_PORT}/images/${result.url}`
+    console.log(imageUrl)
     // Then, create the product with the image URL
     const productDataWithImage = { ...productData, url_image: imageUrl };
     await createProduct(productDataWithImage, 'product');

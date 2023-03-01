@@ -1,23 +1,31 @@
-import backEndpoints from './backEndpoints';
-import axios from 'axios';
+  import backEndpoints from './backEndpoints';
+  import axios, { AxiosResponse } from 'axios';
 
-const addImage = async (formData: FormData) => {
-  const token: any = localStorage.getItem('token');
+  const addImage = async (formData: FormData): Promise<string | undefined> => {
+    const token: string | null = localStorage.getItem('token');
 
-  if(!token.length) {
-    return 'There is something wrong with your login';
-  } else {
-    return await axios.post(
-      backEndpoints['add_image'],
-      formData,
-      { headers: { authorization: token}}
-    ).then(res => {
-      return res.data;
-    }).catch((error) => {
+    if (!formData || !token) {
+      return 'There is something wrong with your login';
+    }
+
+    const config = {
+      headers: {
+        'Content-Type': `multipart/form-data;`
+      },
+    };
+
+    try {
+      const response: AxiosResponse = await axios.post(
+        backEndpoints['add_image'],
+        formData,
+        config,
+      );
+
+      return response.data;
+    } catch (error: any) {
       console.log(error.message);
-      return error;
-    });
-  }
-};
+      return 'Error adding image' + error.message;
+    }
+  };
 
-export default addImage;
+  export default addImage;
