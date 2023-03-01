@@ -20,6 +20,7 @@ const endpoints: any =  {
   register: `${BASE_URL}/register`,
   register_seller: `${BASE_URL}/register_seller`,
   sell: `${BASE_URL}/sell`,
+  add_image: `${BASE_URL}/add_image`,
 };
 
 export default endpoints;

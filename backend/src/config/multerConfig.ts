@@ -1,5 +1,5 @@
 import multer from 'multer';
-const path = require('path');
+import path from 'path';
 const imagePath = path.join(__dirname, '..', '..', 'images');
 
 const storage = multer.diskStorage({
