@@ -3,6 +3,7 @@ import Products from "../models/products";
 import Sales from "../models/sales";
 import User from '../models/user';
 import SalesProducts from '../models/salesProducts';
+import { Sequelize } from 'sequelize';
 
 class SalesController {
   async getAll(_req: Request , res: Response) {
@@ -109,6 +110,35 @@ class SalesController {
     }
     const saleUpdated = await Sales.update({status: 'canceled'}, { where: { id }});
     res.status(200).json({ saleUpdated, status: 'canceled'});
+  }
+  async getTopSellers(_req: Request, res: Response) {
+    const sellers = await Sales.findAll({
+      attributes: [
+        'seller_id',
+        [Sequelize.fn('COUNT', Sequelize.col('seller_id')), 'total_sales'],
+      ],
+      group: ['seller_id', 'seller.id', 'seller.name'], // Adiciona os campos na cláusula GROUP BY
+      order: [[Sequelize.literal('total_sales'), 'DESC']],
+      limit: 5,
+      include: [
+      {
+        model: User,
+        as: 'seller',
+        attributes: ['id', 'name', 'role'],
+        where: {
+          role: ['seller', 'admin']
+        }
+      },
+      ],
+    });
+    
+    const topSellers = sellers.map((seller: any) => ({
+      id: seller.seller.id,
+      name: seller.seller.name,
+      total_sales: seller.get('total_sales'),
+    }));
+    
+    return res.json(topSellers);
   }
 }
 

@@ -13,5 +13,6 @@ router.get('/seller_sells', authMiddleware, SaleController.getSellerSales);
 router.get('/user_sells', authMiddleware, SaleController.getById);
 router.get('/user_sells/:id', authMiddleware, SaleController.getSalesProductsId);
 router.get('/sales_products', authAdmin, SaleController.getSalesProducts);
+router.get('/top_sellers', SaleController.getTopSellers)
 
 export default router;

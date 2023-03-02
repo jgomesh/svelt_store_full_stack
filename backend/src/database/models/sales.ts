@@ -65,7 +65,7 @@ Sales.belongsTo(User, {
 
 Sales.belongsTo(User, {
   foreignKey: 'seller_id',
-  as: 'sellers'
+  as: 'seller'
 })
 
 Sales.sync();
