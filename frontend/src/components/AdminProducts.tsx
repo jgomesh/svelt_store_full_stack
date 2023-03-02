@@ -48,7 +48,7 @@ function AdminProducts({ setCartInfo, cartInfo, userId }: {setCartInfo: Function
               <SwiperSlide>
                 <Product userId={userId} key={index} product={product} setCartInfo={setCartInfo} cartInfo={cartInfo} />
               </SwiperSlide>
-            ))}
+            )).reverse()}
           </Swiper>
         </>
       )}

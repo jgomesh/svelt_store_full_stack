@@ -13,9 +13,9 @@ const REACT_APP_BACKEND_PORT = '3001'
 function ProductRegistration(props: IProps) {
   const [productData, setProductData]: any = useState({ name: '', price: 0, image: null });
   const [hiddeCart, setHiddeCart] = useState(false);
-  const { userData, loading } = useLoginEffect(props.history);
+  const { userData } = useLoginEffect(props.history);
   const roleUser = userData.role === 'user';
-  const [roleSeller, setRoleSeller] = useState(!(userData.role === 'seller' || userData.role === 'admin'));
+  const [roleSeller, _setRoleSeller] = useState(!(userData.role === 'seller' || userData.role === 'admin'));
 
   const handleFileSelect = (event: any) => {
     const selectedFile = event.target.files[0];
@@ -24,7 +24,6 @@ function ProductRegistration(props: IProps) {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    console.log(productData.image.name)
     // Create a new FormData object
     const formData = new FormData();
     formData.append('imagem', productData.image);
@@ -34,9 +33,8 @@ function ProductRegistration(props: IProps) {
     if(!result.url) {
       return "ERRO"
     }
-    
+
     const imageUrl = `http://${REACT_APP_BACKEND_HOST}:${REACT_APP_BACKEND_PORT}/images/${result.url}`
-    console.log(imageUrl)
     // Then, create the product with the image URL
     const productDataWithImage = { ...productData, url_image: imageUrl };
     await createProduct(productDataWithImage, 'product');
@@ -59,9 +57,6 @@ function ProductRegistration(props: IProps) {
         roleUser={roleUser}
       />
       <section className="register_seller_product">
-        {loading ? (
-          <Loading />
-        ) : (
           <form onSubmit={handleSubmit}>
             <h1>Register a new product</h1>
             <label htmlFor="name">Name of the product:</label>
@@ -96,7 +91,6 @@ function ProductRegistration(props: IProps) {
             />
             <button type="submit">Register</button>
           </form>
-        )}
       </section>
       <Footer setLoginOpen={() => {}} />
     </>

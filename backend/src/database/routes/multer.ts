@@ -12,7 +12,6 @@ router.post('/add_image', upload.single('imagem'), (req: any, res: any) => {
 
   fs.rename(path, newPath, function (err) {
     if (err) {
-      console.error(err);
       res.status(500).send('Erro ao mover o arquivo');
     } else {
       res.status(200).send({ message: 'Imagem adicionada com sucesso!', url: req.file.filename} );

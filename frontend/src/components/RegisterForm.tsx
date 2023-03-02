@@ -33,15 +33,15 @@ function RegisterForm({ userInfo, setError, setRegistered, disabled, error, regi
         <div className='form__body'>
           <label className='input__labels'>
             <span>Name: </span>
-            <input onChange={handleChange} type="text" name="name" placeholder="Your name" />
+            <input onChange={handleChange} value={userInfo.name} type="text" name="name" placeholder="Your name" />
           </label>
           <label className='input__labels'>
             <span>Email: </span>
-            <input onChange={handleChange} type="email" name="email" placeholder="Your email" />
+            <input onChange={handleChange} value={userInfo.email} type="email" name="email" placeholder="Your email" />
           </label>
           <label className='input__labels'>
             <span>Password: </span>
-            <input onChange={handleChange} type="password" name="password" placeholder="Your password" />
+            <input onChange={handleChange} value={userInfo.password} type="password" name="password" placeholder="Your password" />
           </label>
           {loading? 'Loading...' : (
             <div className='signin__container'>

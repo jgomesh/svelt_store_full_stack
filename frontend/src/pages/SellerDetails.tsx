@@ -22,7 +22,6 @@ function SellerDetails(props: IProps) {
       setSellerProducts(products.products);
       setSellerData(seller)
       setLoading(false);
-      console.log(sellerProducts)
     };
     getProducts();
   }, []);

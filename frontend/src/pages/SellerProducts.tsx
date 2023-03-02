@@ -21,7 +21,7 @@ function SellerProducts(props: IProps) {
                 {sellerProducts.map((product: any, index: number) => (
                   <div className='own_products_div' key={index}>
                     <h4>{product.name}</h4>
-                    <img className='seller_products' src={product.url_image} alt={product.name} />
+                    <img className='seller_product' src={product.url_image} alt={product.name} />
                     <p>Price: R$ {product.price}</p>
                     {roleSeller && (
                       <button
@@ -38,7 +38,7 @@ function SellerProducts(props: IProps) {
                       </button>
                     )}
                   </div>
-                ))}
+                )).reverse()}
               </>
             )}
           </section>

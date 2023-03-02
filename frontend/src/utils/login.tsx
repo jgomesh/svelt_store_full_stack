@@ -4,8 +4,13 @@ import IUserInfo from "../interfaces/IUserInfo";
 const login = async (event: Event, setLoading: Function, userInfo: IUserInfo, setError: Function, history: { push: Function } ) => {
   event.preventDefault();
   setLoading(true);
-  await requestLoginOrSignin(userInfo, 'login');
+  const result = await requestLoginOrSignin(userInfo, 'login');
+  
   const token: string | null = localStorage.getItem('token');
+    if(result && (result.role ==='admin' || result.role ==='seller')) {
+    setError(false);
+    return history.push('/dashboard');
+  }
 
   if(!token || !token.length) {
     setError(true);

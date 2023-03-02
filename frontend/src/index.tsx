@@ -33,6 +33,7 @@ import Register from './pages/Register';
 import UserShops from './pages/UserShops';
 import FinishPayment from './pages/FinishPayment'
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -43,6 +44,7 @@ root.render(
       <Router>
         <Switch>
           <Route exact path="/" render={(props) => <Login {...props} />}/>
+          <Route exact path="/dashboard"render={(props) => <Dashboard {...props} />}/>
           <Route exact path="/new_product"render={(props) => <ProductRegistration {...props} />}/>
           <Route path="/register"render={(props) => <Register {...props} />}/>
           <Route path="/home" render={(props) => <Home {...props} />}/>

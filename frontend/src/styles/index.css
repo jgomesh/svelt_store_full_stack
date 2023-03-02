@@ -75,3 +75,7 @@ body {
 .black_background {
   background-color: black;
 }
+
+.min_height {
+  margin-top: 60px;
+}

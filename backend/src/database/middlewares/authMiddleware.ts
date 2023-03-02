@@ -26,9 +26,6 @@ export default function authMiddleware(
 
     req.userId = id;
     req.role = role;
-    console.log("BACKGNEDD")
-    console.log(role)
-    console.log(id)
     if((!id || id === 'undefined') || (!role || role === 'undefined')) {
       return res.sendStatus(401);
     }
