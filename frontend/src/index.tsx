@@ -10,6 +10,7 @@ import './styles/components/Cart.css';
 import './styles/pages/register__section.css';
 import './styles/pages/ProductsDetails.css';
 import './styles/pages/SellerDetails.css';
+import './styles/pages/Dashboard.css';
 import './styles/pages/SellerProducts.css';
 import './styles/pages/SellerSells.css';
 import './styles/pages/FinishPayment.css';

@@ -4,7 +4,6 @@ import redirect from '../utils/redirect';
 import createProduct from '../utils/api/createSale';
 import addImage from '../utils/api/addImage';
 import IProps from '../interfaces/IProps';
-import Loading from '../components/Loading';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 const REACT_APP_BACKEND_HOST = '192.168.0.102'
@@ -35,14 +34,12 @@ function ProductRegistration(props: IProps) {
     }
 
     const imageUrl = `http://${REACT_APP_BACKEND_HOST}:${REACT_APP_BACKEND_PORT}/images/${result.url}`
-    // Then, create the product with the image URL
     const productDataWithImage = { ...productData, url_image: imageUrl };
     await createProduct(productDataWithImage, 'product');
 
     // Reset the form
     setProductData({ name: '', price: 0, image: null });
 
-    // Redirect to the products list page
     redirect(event, props.history, '/my_products');
   };
 

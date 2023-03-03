@@ -1,0 +1,22 @@
+.dashboard_header {
+  display: flex;
+  padding: 34px;
+  justify-content: center;
+}
+.dashboard_section {
+  width: 100%;
+  display: flex;
+  padding: 34px;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard_div {
+  min-width: 50%;
+  text-align: center;
+}
+
+.top_sellers, .top_products {
+  display: flex;
+  flex-direction: column;
+}
