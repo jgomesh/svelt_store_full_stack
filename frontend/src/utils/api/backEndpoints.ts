@@ -20,6 +20,9 @@ const endpoints: any =  {
   register: `${BASE_URL}/register`,
   register_seller: `${BASE_URL}/register_seller`,
   sell: `${BASE_URL}/sell`,
+  sells: `${BASE_URL}/sells`,
+  top_sellers: `${BASE_URL}/top_sellers `,
+  top_products: `${BASE_URL}/top_products`,
   add_image: `${BASE_URL}/add_image`,
 };
 

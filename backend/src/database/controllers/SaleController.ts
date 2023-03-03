@@ -140,6 +140,79 @@ class SalesController {
     
     return res.json(topSellers);
   }
+
+  async getTopProducts(req: Request, res: Response) {
+    const topProducts = await SalesProducts.findAll({
+      attributes: [
+        [Sequelize.fn('SUM', Sequelize.col('quantity')), 'total_sales'],
+        'product_id',
+      ],
+      group: ['tsauth.product_id', 'product.id', 'product.name', 'product.price'],
+      order: [[Sequelize.literal('total_sales'), 'DESC']],
+      limit: 5,
+      include: [
+        {
+          model: Products,
+          as: 'product',
+          attributes: ['id', 'name'],
+        },
+      ],
+    });
+  
+    const result = topProducts.map((product: any) => ({
+      id: product.product.id,
+      name: product.product.name,
+      total_sales: product.get('total_sales'),
+    }));
+  
+    res.json(result);
+  }
+  
+  async getTopSellersWithSales(_req: Request, res: Response) {
+    const sellers = await Sales.findAll({
+      attributes: [
+        'seller_id',
+        [Sequelize.fn('SUM', Sequelize.col('sales_products.total_price')), 'total_sales'],
+      ],
+      group: ['seller.id', 'seller.name'],
+      order: [[Sequelize.literal('total_sales'), 'DESC']],
+      limit: 5,
+      include: [
+        {
+          model: User,
+          as: 'seller',
+          attributes: ['id', 'name', 'role'],
+          where: {
+            role: ['seller', 'admin']
+          }
+        },
+        {
+          model: SalesProducts,
+          as: 'sales_products',
+          attributes: [
+            [Sequelize.fn('SUM', Sequelize.col('sales_products.price * sales_products.quantity')), 'total_price'],
+          ],
+          include: [
+            {
+              model: Products,
+              as: 'product',
+              attributes: ['id', 'name', 'price'],
+            },
+          ]
+        }
+      ],
+    });
+  
+    const topSellers = sellers.map((seller: any) => ({
+      id: seller.seller.id,
+      name: seller.seller.name,
+      total_sales: seller.get('total_sales'),
+    }));
+  
+    return res.json(topSellers);
+  }
+  
+  
 }
 
 export default new SalesController;

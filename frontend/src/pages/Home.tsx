@@ -17,6 +17,10 @@ function Home(props: IProps) {
   const roleUser = (userData.role === 'user');
   const roleSeller = (userData.role === 'seller' || userData.role === 'admin');
   
+  if(roleSeller) {
+    redirect({ preventDefault: () => {}}, props.history, '/dashboard')
+  }
+
   useEffect(() => {
     setLoading(true);
     const getSellers = async () => {

@@ -1,14 +1,13 @@
 import { Model, INTEGER } from 'sequelize';
-import Sale from './sales'
-import Product from './products'
-import sequelize from '../instances/sequelize'
+import Sale from './sales';
+import Product from './products';
+import sequelize from '../instances/sequelize';
 
 class SaleProduct extends Model {
   sale_id: number;
   product_id: number;
   quantity: number;
 }
-
 
 SaleProduct.init({
   sale_id: {
@@ -51,6 +50,9 @@ Product.belongsToMany(Sale,
     otherKey: 'sale_id',
   }
 );
+
+SaleProduct.belongsTo(Product, { foreignKey: 'product_id', as: 'product' }); // Define a associação entre SaleProduct e Product
+
 
 SaleProduct.sync();
 
