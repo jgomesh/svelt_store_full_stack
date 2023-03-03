@@ -15,6 +15,6 @@ As tecnologias usadas foram:
 - React Testing Library
 - Jest para ambiente de teste
 
-Para roda:
+Para rodar:
 
 docker-compose up -d
