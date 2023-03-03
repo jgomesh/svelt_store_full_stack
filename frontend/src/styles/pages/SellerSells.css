@@ -29,11 +29,18 @@
 
 .register_seller_product form button {
   background-color: black;
-  border: none;
+  border: 1px solid black;
   padding: 8px;
   color: white;
   border-radius: 4px;
   font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.register_seller_product form button:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(7, 7, 7);
 }
 
 .seller_product {
