@@ -33,7 +33,6 @@
   ],
   "scripts": {
     "start": "react-scripts start",
-    "prestart": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
